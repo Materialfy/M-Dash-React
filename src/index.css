@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.globalbackground-color{
+    @apply bg-gray-400
+}
+
+.globalmainbg-color{
+    @apply bg-gray-500
+}
+.global-text-1{
+    @apply text-gray-300
+}
+.global-text-2{
+    @apply text-gray-500
+}
