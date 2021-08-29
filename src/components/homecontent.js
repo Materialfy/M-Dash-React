@@ -1,4 +1,18 @@
-const colorList = [{'bgColor' : 'bg-yellow-200', 'barColor' : 'bg-yellow-700'}, {'bgColor' : 'bg-gray-300', 'barColor' : 'bg-indigo-700'}, {'bgColor' : 'bg-green-200', 'barColor' : 'bg-green-700'}, {'bgColor' :  'bg-blue-200', 'barColor' : 'bg-blue-700'}, {'bgColor' :  'bg-purple-200', 'barColor' : 'bg-purple-700'}, {'bgColor' : 'bg-red-200', 'barColor' : ''}]
+const colorList = [
+{'bgColor' : 'bg-yellow-200', 'barColor' : 'bg-yellow-700'}, 
+{'bgColor' : 'bg-gray-300', 'barColor' : 'bg-indigo-700'}, 
+{'bgColor' : 'bg-green-200', 'barColor' : 'bg-green-700'}, 
+{'bgColor' :  'bg-blue-200', 'barColor' : 'bg-blue-700'}, 
+{'bgColor' :  'bg-purple-200', 'barColor' : 'bg-purple-700'}, 
+{'bgColor' : 'bg-red-200', 'barColor' : 'bg-red-700'}
+]
+
+const messages =[{
+  'message': 'Yea, I can definitely remind you about that', 
+  'name' : 'Brit', 
+  'icon': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80'}, {'message': 'Wow super duper cool', 'name' : 'Bobby', 'icon': 'https://images.unsplash.com/photo-1543965170-4c01a586684e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fG1hbnxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60'}, 
+  {'message': 'Reminder Text', 'name' : 'Reminder: Indeed this is an reminder','icon': 'https://www.clipartmax.com/png/full/103-1033757_rover-alert-icon-capital-asset-pricing-model.png'}, 
+  {'message': 'This is the thing im reminding you about ', 'name' : 'Reminder: Check that thing', 'icon': 'https://www.clipartmax.com/png/full/103-1033757_rover-alert-icon-capital-asset-pricing-model.png'}]
 
 const Content = ({ title }) => (
   
@@ -70,17 +84,18 @@ const Content = ({ title }) => (
       </div>
       
 
-      {/* Chart section */}
-      
+      {/* Main/Chart section */}
+      {/* used map with colorList to dynamically generate and color the charts */}
+
       <div className="flex flex-wrap">
-        <div className="w-full md:w-4/12">
+      {colorList.map((colorItem) => <div className="w-full md:w-4/12">
           <div className="p-2">
             <div
-              className="p-4 rounded-3xl bg-yellow-200"
+              className={`p-4 rounded-3xl ${colorItem.bgColor}`}
               
             >
               <div className="flex items-center justify-b">
-                <span className="text-sm">December 10, 2020</span>
+                <span className="text-sm">{Date().split(' ').splice(0,3).join(' ')}</span>
               </div>
               <div className="text-center mb-4 mt-5">
                 <p className="text-base font-bold opacity-70">Web Designing</p>
@@ -89,7 +104,7 @@ const Content = ({ title }) => (
               <div>
                 <p className="text-sm font-bold m-0">Progress</p>
                 <div className="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0">
-                  <span className="block h-1 rounded-md bg-yellow-700 w-6/12" />
+                  <span className={`block h-1 rounded-md ${colorItem.barColor} w-6/12`} />
                 </div>
                 <p className="text-right m-0 text-sm font-bold">60%</p>
               </div>
@@ -128,14 +143,11 @@ const Content = ({ title }) => (
               </div>
             </div>
           </div>
-        </div>
+        </div> )}
+        
 
       </div>
     </div>
-
-
-
-
 
 {/* message box */}
 
@@ -145,15 +157,17 @@ const Content = ({ title }) => (
           <p>Messages &amp; Reminders</p>
         </div>
         <div>
-          <div className="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
+        {/* dynamic messages */}
+        {messages.map((messageItem) => 
+        <div className="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
             <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
+              src={messageItem.icon}
               alt="profile image"
               className="object-cover w-10 h-10 rounded-full"
             />
             <div className="pl-4 w-full">
               <div className="flex items-center justify-between w-full">
-                <div className="text-white font-medium">Stephanie</div>
+                <div className="text-white font-medium">{messageItem.name}</div>
                 <div className="flex justify-center items-center cursor-pointer h-7 w-7">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -172,110 +186,11 @@ const Content = ({ title }) => (
                 </div>
               </div>
               <p className="my-2 text-sm global-text-1">
-                I got your first assignment. It was quite good. 🥳 We can
-                continue with the next assignment.
+                {messageItem.message}
               </p>
               <p className="text-right global-text-1 text-sm">Dec, 12</p>
             </div>
-          </div>
-          <div className="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-            <img
-              src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-              alt="profile image2"
-              className="object-cover w-10 h-10 rounded-full"
-            />
-            <div className="pl-4 w-full">
-              <div className="flex items-center justify-between w-full">
-                <div className="text-white font-medium">Mark</div>
-                <div className="flex justify-center items-center cursor-pointer h-7 w-7">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-white"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                </div>
-              </div>
-              <p className="my-2 text-sm global-text-1">
-                Hey, can tell me about progress of project? I'm waiting for your
-                response.
-              </p>
-              <p className="text-right global-text-1 text-sm">Dec, 12</p>
-            </div>
-          </div>
-          <div className="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-            <img
-              src="https://images.unsplash.com/photo-1543965170-4c01a586684e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fG1hbnxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-              alt="profile image"
-              className="object-cover w-10 h-10 rounded-full"
-            />
-            <div className="pl-4 w-full">
-              <div className="flex items-center justify-between w-full">
-                <div className="text-white font-medium">David</div>
-                <div className="flex justify-center items-center cursor-pointer h-7 w-7">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-white"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                </div>
-              </div>
-              <p className="my-2 text-sm global-text-1">
-                Hey, can tell me about progress of project? I'm waiting for your
-                response.
-              </p>
-              <p className="text-right global-text-1 text-sm">Dec, 12</p>
-            </div>
-          </div>
-          <div className="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-            <img
-              src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-              alt="profile image3"
-              className="object-cover w-10 h-10 rounded-full"
-            />
-            <div className="pl-4 w-full">
-              <div className="flex items-center justify-between w-full">
-                <div className="text-white font-medium">Mark</div>
-                <div className="flex justify-center items-center cursor-pointer h-7 w-7">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-white"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                </div>
-              </div>
-              <p className="my-2 text-sm global-text-1">
-                I am really impressed! Can't wait to see the final result.
-              </p>
-              <p className="text-right global-text-1 text-sm">Dec, 12</p>
-            </div>
-          </div>
+          </div>)}
         </div>
       </div>
     </div>
