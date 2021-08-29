@@ -15,3 +15,9 @@
 .global-text-2{
     @apply text-gray-500
 }
+.login-wrapper {
+    @apply flex flex-col h-[350px] w-[400px]
+}
+.tester {
+    border:1px solid red;
+}

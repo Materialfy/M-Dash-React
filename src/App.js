@@ -34,7 +34,7 @@ function App() {
             <TablePage />
           </Route>
           <Route exact path='/login'>
-            <Login />
+            <Login  />
           </ Route>
         </Switch>
       </DashboardLayout>
