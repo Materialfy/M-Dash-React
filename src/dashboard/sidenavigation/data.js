@@ -4,6 +4,7 @@ import CreditsIcon from './icons/credits';
 import ArchivesIcon from './icons/archives';
 import SettingsIcon from './icons/settings';
 import TableIcon from './icons/documentation';
+import LoginIcon from './icons/login'
 
 
 const data = [
@@ -37,6 +38,11 @@ const data = [
     icon: <SettingsIcon />,
     link: '/admin/settings',
   },
+  {
+    title: 'Login',
+    icon: <LoginIcon />,
+    link: '/login'
+  }
 ];
 
 export default data;

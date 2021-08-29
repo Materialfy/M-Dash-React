@@ -7,6 +7,7 @@ import DashboardLayout from './dashboard/layout';
 import UserPage from './pages/admin/userpage';
 import SettingsPage from './pages/admin/settings';
 import TablePage from './pages/admin/datatable'
+import Login from './pages/login'
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           <Route exact path='/admin/datatables'>
             <TablePage />
           </Route>
+          <Route exact path='/login'>
+            <Login />
+          </ Route>
         </Switch>
       </DashboardLayout>
     </Router>
