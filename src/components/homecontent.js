@@ -1,8 +1,10 @@
-const colorList = [{'bgColor' : 'bg-yellow-200', 'barColor' : 'bg-yellow-700'}, {'bgColor' : 'bg-gray-300', 'barColor' : 'bg-indigo-700'}, {'bgColor' : 'bg-green-200', 'barColor' : 'bg-green-700'}, {'bgColor' :  'bg-blue-200', 'barColor' : 'bg-blue-700'}, {'bgColor' :  'bg-purple-200', 'barColor' : 'bg-purple-700'}, {'bgColor' : 'bg-red-200', 'barColor' : 'bg-red-200'}]
+const colorList = [{'bgColor' : 'bg-yellow-200', 'barColor' : 'bg-yellow-700'}, {'bgColor' : 'bg-gray-300', 'barColor' : 'bg-indigo-700'}, {'bgColor' : 'bg-green-200', 'barColor' : 'bg-green-700'}, {'bgColor' :  'bg-blue-200', 'barColor' : 'bg-blue-700'}, {'bgColor' :  'bg-purple-200', 'barColor' : 'bg-purple-700'}, {'bgColor' : 'bg-red-200', 'barColor' : ''}]
 
 const Content = ({ title }) => (
   
   <div className="flex flex-wrap">
+    
+    {/* center section */}
     <div className="w-full lg:w-8/12 globalmainbg-color py-6 px-6 rounded-3xl">
       
       {/* header text section */}
@@ -67,8 +69,8 @@ const Content = ({ title }) => (
         </div>
       </div>
       
+
       {/* Chart section */}
-      
       
       <div className="flex flex-wrap">
         <div className="w-full md:w-4/12">
@@ -127,6 +129,7 @@ const Content = ({ title }) => (
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -276,6 +279,8 @@ const Content = ({ title }) => (
         </div>
       </div>
     </div>
+
+
   </div>
 );
 
