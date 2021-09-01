@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useState } from 'react';
+import useToken from './dashboard/data/useToken';
 import HomePage from './pages';
 import StatusPage from './pages/admin/status';
 import InboxPage from './pages/admin/inbox';
@@ -11,7 +11,7 @@ import Login from './pages/login'
 
 
 function App() {
-  const [token, setToken] = useState();
+  const { token, setToken } = useToken();
   //  send the set token setter as a prop to use in Login
   if(!token){
     return <Login setToken={setToken} />
