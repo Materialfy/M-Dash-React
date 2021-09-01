@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import reqres from '../dashboard/reqresApi'
 
-async function loginUser(credentials){
-    let response = await reqres.get('/login')
-}
-
-
 export default function Login({setToken}) {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
-    const handleSubmit = async
+    const handleSubmit = async event => {
+        event.preventDefault();
+        const token = await reqres.post('/login',{
+            username, password
+        });
+        setToken(token);
+    }
     return (
         <div className='grid h-screen w-screen content-center justify-center bg-gray-400'>
             <div className='login-wrapper rounded-md globalmainbg-color opacity-70'>
@@ -23,7 +24,7 @@ export default function Login({setToken}) {
               />
             </a>
                 <h1 className='my-2 text-lg text-header'>Log Into M-Dash</h1>
-                <form className='w-full px-4'>
+                <form className='w-full px-4' onSubmit={handleSubmit}>
                     <label>
                         <p className='my-2 text-sub'>Username</p>
                         <input className='input-bar text-gray-400' type='text' placeholder='Email' onChange={ e => setUsername(e.target.vale)} />
