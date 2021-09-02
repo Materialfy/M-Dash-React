@@ -2,7 +2,7 @@
   "name": "m-dashboard-react",
   "version": "1.0.0",
   "author": {
-    "name": "Clint"
+    "name": "clint"
   },
   "license": "MIT",
   "repository": {
@@ -34,7 +34,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
