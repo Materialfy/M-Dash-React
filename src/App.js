@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import useToken from './dashboard/data/useToken';
 import HomePage from './pages';
 import StatusPage from './pages/admin/status';
 import InboxPage from './pages/admin/inbox';
@@ -8,7 +7,7 @@ import UserPage from './pages/admin/userpage';
 import SettingsPage from './pages/admin/settings';
 import TablePage from './pages/admin/datatable'
 import Login from './pages/login'
-
+import useToken from './dashboard/data/useToken';
 
 function App() {
   const { token, setToken } = useToken();
