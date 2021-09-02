@@ -2,7 +2,7 @@
   "name": "m-dashboard-react",
   "version": "1.0.0",
   "author": {
-    "name": "Enoch Ndika"
+    "name": "Clint"
   },
   "license": "MIT",
   "repository": {
@@ -35,7 +35,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
