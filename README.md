@@ -6,6 +6,7 @@ Made with create-react-app/CRACO
 ## 📋 Documentation
 You can see the documentation at [Materialfy docs](http://docs.materialfy.com)
 
+## [Demo](https://m-dash-react.netlify.app/)
 
 ## Contribution
 If you would like to contribute on the project, feel free!
