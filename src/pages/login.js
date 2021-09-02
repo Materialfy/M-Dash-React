@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import reqres from '../dashboard/data/reqresApi'
-import { useToggle } from '../dashboard/provider/context';
-import { Redirect } from 'react-router';
 import history from '../dashboard/data/history';
 
 export default function Login({setToken}) {
     const [email, setEmail] = useState('eve.holt@reqres.in');
     const [password, setPassword] = useState('cityslicka');
-    //const {history} = useToggle()
-    const [loggedIn, setLoggedIn] = useState();
+    const [loggedIn, setLoggedIn] = useState(false);
+    
     const handleSubmit = async event => {
         event.preventDefault();
         const token = await reqres.post('/login',{
@@ -17,9 +15,8 @@ export default function Login({setToken}) {
             password
         });
         setToken(token.data.token);
+        history.push("/");
         setLoggedIn(true)
-        history.push("/admin/inbox");
-
     }
 
     return (
