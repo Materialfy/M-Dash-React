@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useRef} from 'react';
 import { useHistory } from 'react-router-dom';
+
 
 // create new context
 const Context = React.createContext({});
 
 export default function DashboardProvider({ children }) {
-  const [open, setOpen] = React.useState(false);
-  const ref = React.useRef(null);
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
   const history = useHistory();
 
   const toggle = React.useCallback(() => {
@@ -38,13 +39,13 @@ export default function DashboardProvider({ children }) {
   }, [open, ref]);
 // open state, ref, and history is the context being passed down from here
   return (
-    <Context.Provider value={{ open, ref, toggle }}>
+    <Context.Provider value={{ open, ref, history , toggle}}>
       {children}
     </Context.Provider>
   );
 }
 
-// export custom context hook to use/consume all context values { open, ref, toggle } in consumer components
+// export custom context hook to use/consume all context values { open, ref, toggle, history } in consumer components
 export function useToggle() {
   return React.useContext(Context);
 }
