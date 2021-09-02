@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import HomePage from './pages';
 import StatusPage from './pages/admin/status';
 import InboxPage from './pages/admin/inbox';
@@ -7,9 +6,16 @@ import DashboardLayout from './dashboard/layout';
 import UserPage from './pages/admin/userpage';
 import SettingsPage from './pages/admin/settings';
 import TablePage from './pages/admin/datatable'
-
+import Login from './pages/login'
+import useToken from './dashboard/data/useToken';
 
 function App() {
+  const { token, setToken } = useToken();
+  //  send the set token setter as a prop to use in Login
+  if(!token){
+    return <Login setToken={setToken} />
+  }
+
   return (
     <Router>
       <DashboardLayout>
@@ -32,6 +38,9 @@ function App() {
           <Route exact path='/admin/datatables'>
             <TablePage />
           </Route>
+          <Route exact path='/login'>
+            <Login  />
+          </ Route>
         </Switch>
       </DashboardLayout>
     </Router>
