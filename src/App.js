@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './pages';
 import StatusPage from './pages/admin/status';
 import InboxPage from './pages/admin/inbox';
@@ -44,6 +44,7 @@ function App() {
           </ Route>
           <Route exact path='/logout' >
           {deleteToken}
+          <Redirect to='login'/>
           </Route>
         </Switch>
       </DashboardLayout>
