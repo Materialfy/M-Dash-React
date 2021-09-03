@@ -6,7 +6,7 @@ import history from '../dashboard/data/history';
 export default function Login({setToken}) {
     const [email, setEmail] = useState('eve.holt@reqres.in');
     const [password, setPassword] = useState('cityslicka');
-    const [loggedIn, setLoggedIn] = useState(false);
+    //const [loggedIn, setLoggedIn] = useState(false);
     
     const handleSubmit = async event => {
         event.preventDefault();
@@ -15,8 +15,9 @@ export default function Login({setToken}) {
             password
         });
         setToken(token.data.token);
+        //wrap in useEffect since the app is rendering before history is pushed
         history.push("/");
-        setLoggedIn(true)
+        //setLoggedIn(true)
     }
 
     return (
