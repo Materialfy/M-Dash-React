@@ -1,4 +1,4 @@
-import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -27,22 +27,30 @@ const data = {
   ],
 };
 
-const DoughnutChart = () => (
+const options = {
+    responsive: true,
+    maintainAspectRatio:  true,
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+  },
+};
+
+const VerticalBar = () => (
   <>
     <div className='header'>
-      <h1 className='title text-center font-sans text-lg global-text-2 '>Doughnut Chart</h1>
+      <h1 className='title global-text-2 text-center font-sans text-lg'>Vertical Bar Chart</h1>
+      <div className='links'>
 
+      </div>
     </div>
-    <Doughnut 
-      data={data} 
-      width={"250"} 
-      height={'250'} 
-      options={{
-        responsive: true,
-        maintainAspectRatio:  true,
-      }}
-        />
+    <Bar data={data} options={options} width={"250"} height={'250'} />
   </>
 );
 
-export default DoughnutChart;
+export default VerticalBar;

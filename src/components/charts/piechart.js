@@ -1,4 +1,4 @@
-import { Doughnut } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -27,22 +27,19 @@ const data = {
   ],
 };
 
-const DoughnutChart = () => (
+const PieChart = () => (
   <>
     <div className='header'>
-      <h1 className='title text-center font-sans text-lg global-text-2 '>Doughnut Chart</h1>
+      <h1 className='title global-text-2 text-center font-sans text-lg'>Pie Chart</h1>
 
     </div>
-    <Doughnut 
-      data={data} 
-      width={"250"} 
-      height={'250'} 
-      options={{
-        responsive: true,
-        maintainAspectRatio:  true,
-      }}
-        />
+    <div >
+        <Pie data={data} width={"250"} height={'250'} options={{
+          responsive: true,
+          maintainAspectRatio:  true,
+        }}/>
+    </div>
   </>
 );
 
-export default DoughnutChart;
+export default PieChart;
