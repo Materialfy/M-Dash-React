@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import reqres from '../dashboard/data/reqresApi'
+import history from '../dashboard/data/history';
 
 export default function Login({setToken}) {
     const [email, setEmail] = useState('eve.holt@reqres.in');
     const [password, setPassword] = useState('cityslicka');
+    //const [loggedIn, setLoggedIn] = useState(false);
+    
     const handleSubmit = async event => {
         event.preventDefault();
         const token = await reqres.post('/login',{
             email, 
             password
         });
-        console.log(token.data)
         setToken(token.data.token);
+        //wrap in useEffect since the app is rendering before history is pushed
+        history.push("/");
+        //setLoggedIn(true)
     }
 
     return (
@@ -40,6 +45,7 @@ export default function Login({setToken}) {
                     </div>
                 </form>
             </div>
+
         </div>
     )
 }

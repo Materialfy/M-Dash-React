@@ -1,7 +1,8 @@
 import SidePanel from './sidepanel'
 import DataCards from './datacards';
+import Charts from './charts'
 
-const Content = ({ title }) => (
+const Content = ({ title, placeholder }) => (
   
   <div className="flex flex-wrap">
     
@@ -69,14 +70,12 @@ const Content = ({ title }) => (
           </button>
         </div>
       </div>
-      
-
       {/* Main/Chart section */}
-      <DataCards />
+      {placeholder ? <DataCards /> : <Charts />
+      }
     </div>
-
-  {/* message box */}
-  <SidePanel/>
+    {/* message box */}
+    <SidePanel/>
 
   </div>
 );

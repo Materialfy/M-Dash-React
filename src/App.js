@@ -8,16 +8,17 @@ import SettingsPage from './pages/admin/settings';
 import TablePage from './pages/admin/datatable'
 import Login from './pages/login'
 import useToken from './dashboard/data/useToken';
+import history from './dashboard/data/history';
 
 function App() {
-  const { token, setToken } = useToken();
+  const { token, setToken, deleteToken } = useToken();
   //  send the set token setter as a prop to use in Login
   if(!token){
     return <Login setToken={setToken} />
   }
 
   return (
-    <Router>
+    <Router history={history}>
       <DashboardLayout>
         <Switch>
           <Route exact path="/">
@@ -39,8 +40,11 @@ function App() {
             <TablePage />
           </Route>
           <Route exact path='/login'>
-            <Login  />
+            <Login setToken={setToken} />
           </ Route>
+          <Route exact path='/logout' >
+          {deleteToken}
+          </Route>
         </Switch>
       </DashboardLayout>
     </Router>

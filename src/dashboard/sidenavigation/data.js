@@ -5,7 +5,7 @@ import ArchivesIcon from './icons/archives';
 import SettingsIcon from './icons/settings';
 import TableIcon from './icons/documentation';
 import LoginIcon from './icons/login'
-
+import LogoutIcon from './icons/logout';
 
 const data = [
   {
@@ -42,6 +42,11 @@ const data = [
     title: 'Login',
     icon: <LoginIcon />,
     link: '/login'
+  },
+  {
+    title: 'Logout',
+    icon: <LogoutIcon />,
+    link: '/logout'
   }
 ];
 
