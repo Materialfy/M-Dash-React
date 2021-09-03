@@ -11,7 +11,7 @@ import useToken from './dashboard/data/useToken';
 import history from './dashboard/data/history';
 
 function App() {
-  const { token, setToken } = useToken();
+  const { token, setToken, deleteToken } = useToken();
   //  send the set token setter as a prop to use in Login
   if(!token){
     return <Login setToken={setToken} />
@@ -42,6 +42,9 @@ function App() {
           <Route exact path='/login'>
             <Login setToken={setToken} />
           </ Route>
+          <Route exact path='/logout' >
+          {deleteToken}
+          </Route>
         </Switch>
       </DashboardLayout>
     </Router>
